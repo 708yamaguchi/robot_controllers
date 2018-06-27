@@ -36,11 +36,24 @@
     <description>Cartesian Wrench Controller</description>
   </class>
 
+  <class name="robot_controllers/CartesianWrenchGravityCompensationController"
+         type="robot_controllers::CartesianWrenchGravityCompensationController"
+         base_class_type="robot_controllers::Controller">
+    <description>Cartesian Wrench Gravity Compensation Controller</description>
+  </class>
+
   <class name="robot_controllers/CartesianTwistController"
          type="robot_controllers::CartesianTwistController"
          base_class_type="robot_controllers::Controller">
     <description>Cartesian Twist Controller</description>
   </class>
+
+  <class name="ee_cart_imped_control/EECartImpedControlPlugin"
+         type="ee_cart_imped_control_ns::EECartImpedControlClass"
+         base_class_type="pr2_controller_interface::Controller">
+    <description>End-Effector Cartesian Impedance Controller</description>
+  </class>
+
 
   <class name="robot_controllers/ParallelGripperController"
          type="robot_controllers::ParallelGripperController"

@@ -65,6 +65,7 @@ add_library(robot_controllers
   src/cartesian_pose.cpp
   src/cartesian_twist.cpp
   src/cartesian_wrench.cpp
+  src/cartesian_wrench_gravity_compensation.cpp
   src/diff_drive_base.cpp
   src/follow_joint_trajectory.cpp
   src/gravity_compensation.cpp
