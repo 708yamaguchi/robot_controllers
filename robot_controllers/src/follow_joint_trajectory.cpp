@@ -368,6 +368,7 @@ void FollowJointTrajectoryController::executeCb(const control_msgs::FollowJointT
 
   Trajectory new_trajectory;
   Trajectory executable_trajectory;
+  goal_.trajectory.header.stamp = goal->trajectory.header.stamp;
 
   // Make a trajectory from our message
   if (!trajectoryFromMsg(goal->trajectory, joint_names_, &new_trajectory))
@@ -547,6 +548,10 @@ void FollowJointTrajectoryController::executeCb(const control_msgs::FollowJointT
 
     // Publish feedback
     feedback_.header.stamp = ros::Time::now();
+    feedback_.desired.time_from_start = feedback_.header.stamp - goal_.trajectory.header.stamp;
+    feedback_.actual.time_from_start = feedback_.header.stamp - goal_.trajectory.header.stamp;
+    feedback_.error.time_from_start = feedback_.header.stamp - goal_.trajectory.header.stamp;
+
     server_->publishFeedback(feedback_);
     ros::Duration(1/50.0).sleep();
   }
